@@ -173,7 +173,7 @@ Function RW_start(ws)
 			variable/g v_ye=DimOffset(w,2)+DimDelta(w,2)*(DimSize(w,2)-1)
 			variable/g v_xn=DimSize(w,1)
 			variable/g v_yn=DimSize(w,2)
-			variable/g v_esl=DimOffset(w,0)
+			variable/g v_esl=DimOffset(w,0)+floor(DimDelta(w,0)*DimSize(w,0)/2)
 		else
 			variable/g v_wdim=2
 			variable/g v_xs=DimOffset(w,0)
