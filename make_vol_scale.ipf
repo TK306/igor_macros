@@ -1,10 +1,10 @@
 #pragma rtGlobals=3		// Use modern global access method and strict wave access.
 
-Macro Make_vol_Energy_scale(nws,e_n,t_n,z_s,z_st,outr)
+Macro Make_vol_scale(nws,e_n,t_n,z_s,z_st,outr)
 	string nws="output"
 	variable e_n=100,t_n=500,z_s=0,z_st=1,outr=-inf
-	Prompt e_n,"Energy Points"
-	Prompt t_n,"Angle Points"
+	Prompt e_n,"X Points"
+	Prompt t_n,"Y Points"
 	Prompt z_s,"Z start"
 	Prompt z_st,"Z step"
 	Prompt outr,"Fill out of range with"
