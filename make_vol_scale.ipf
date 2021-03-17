@@ -1,8 +1,8 @@
 #pragma rtGlobals=3		// Use modern global access method and strict wave access.
 
-Macro Make_vol_scale(nws,e_n,t_n,z_s,z_st,outr)
+Macro Make_vol_scale(nws,e_n,t_n,z_s,z_st,outr) 
 	string nws="output"
-	variable e_n=100,t_n=500,z_s=0,z_st=1,outr=-inf
+	variable e_n=mkvl_get(0),t_n=mkvl_get(1),z_s=0,z_st=1,outr=-inf
 	Prompt e_n,"X Points"
 	Prompt t_n,"Y Points"
 	Prompt z_s,"Z start"
@@ -10,6 +10,22 @@ Macro Make_vol_scale(nws,e_n,t_n,z_s,z_st,outr)
 	Prompt outr,"Fill out of range with"
 	Prompt nws,"Output Wave Name"
 	mkvl_sc(nws,e_n,t_n,z_s,z_st,outr)
+End
+
+Function mkvl_get(v)
+	variable v
+	variable out
+	
+	string ws=GetBrowserSelection(0)
+	if(!WaveExists($ws))
+		return 0
+	endif
+	
+	wave w=$ws
+	
+	out=DimSize(w,v)
+	
+	return out
 End
 
 Function mkvl_sc(nws,e_n,t_n,z_s,z_st,outr)
